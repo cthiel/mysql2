@@ -123,6 +123,10 @@ static VALUE rb_set_ssl_mode_option(VALUE self, VALUE setting) {
       return Qnil;
     }
   }
+  else {
+      rb_warn( "It seems you tried to set ssl options but this library does not know how to do that. Ooops" );
+      return Qnil;
+  }
 #endif
 #ifdef FULL_SSL_MODE_SUPPORT
   GET_CLIENT(self);
